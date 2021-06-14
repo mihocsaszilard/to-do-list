@@ -5,10 +5,21 @@ function newItem() {
   const inputValue = $('#input').val();
   li.append(inputValue);
 
-  if (inputValue === ' ') {
+  if (inputValue === '') {
     alert('You must write something!');
   } else {
-    const list = $('#list');
-    $('#list').append('li');
+    $('#list').append(li);
   }
+
+  //crossing out an item
+  function crossOut() {
+    li.toggleClass("strike");
+  }
+
+  li.on('dblclick', function crossOut() {
+    li.toggleClass('strike');
+  });
+
+  
+  $('#list').sortable();
 }
